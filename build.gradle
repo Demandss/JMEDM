@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'su.demands'
+version '1.0.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'su.demands.Main'
+        )
+    }
+}
+
+tasks.with {
+    withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+}
