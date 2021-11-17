@@ -6,10 +6,11 @@ import lombok.SneakyThrows;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
-import java.util.OptionalDouble;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Controller {
@@ -123,14 +124,9 @@ public class Controller {
 
     @SneakyThrows
     private List<String> getDataFromResource(String fileName) {
-        ClassLoader classLoader = getClass().getClassLoader();
-        URL resource = classLoader.getResource(fileName);
-        if (resource == null) {
-            throw new IllegalArgumentException("file not found! " + fileName);
-        } else {
-            return new BufferedReader(new FileReader(new File(resource.toURI()))).lines()
-                    .map(String::toLowerCase).collect(Collectors.toList());
-        }
+        return new BufferedReader(new InputStreamReader(
+                Objects.requireNonNull(ClassLoader.getSystemClassLoader()
+                        .getResourceAsStream(fileName)))).lines().map(String::toLowerCase).collect(Collectors.toList());
     }
 
     public boolean isInteger(String s) {
