@@ -17,7 +17,7 @@ dependencies {
 jar {
     manifest {
         attributes(
-                'Main-Class': 'su.demands.Main'
+                'Main-Class': 'su.demands.jmedm.Main'
         )
     }
 }
