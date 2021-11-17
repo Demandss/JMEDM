@@ -1,4 +1,4 @@
-package su.demands.jmedm;
+package su.demands;
 
 import lombok.Getter;
 import lombok.SneakyThrows;

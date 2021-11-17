@@ -1,4 +1,4 @@
-package su.demands.jmedm;
+package su.demands;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,9 +8,7 @@ import java.awt.event.WindowEvent;
 public class Main {
 
     public static void main(String[] args) {
-        Controller controller = new Controller();
-
-        JFrame form = new JFrame("HalsteadMetrix");
+        JFrame form = new JFrame("JMEDM");
 
         form.setResizable(false);
 
@@ -43,6 +41,8 @@ public class Main {
 
         JButton buttonCalc = new JButton("Calculate");
         buttonCalc.setBounds(25,30,150, 20);
+
+        Controller controller = new Controller();
 
         buttonCalc.addActionListener(e -> {
             if (controller.isInteger(calcModifier.getText())) {
