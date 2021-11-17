@@ -27,7 +27,7 @@ public class Controller {
     int i = 0, j = 0;
     public Controller() {
         inputData = getDataFromResource("inputdata.txt")
-                .stream().mapToDouble(Double::parseDouble).boxed().toList();
+                .stream().mapToDouble(Double::parseDouble).boxed().collect(Collectors.toList());
 
         dataForFormulas = getDataFromResource("dataforformulas.txt");
         dataForFormulas.remove(0);
